@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://x56y1h42mc1h"]
+
+[ext_resource type="Script" path="res://entities/projectiles/projectile.gd" id="1_5nbyw"]
+[ext_resource type="Texture2D" uid="uid://ctqu6nvmaabtg" path="res://assets/projectiles/bullet/idle_00.png" id="1_cx6g4"]
+[ext_resource type="Texture2D" uid="uid://bxcwhc2h334m8" path="res://assets/projectiles/bullet/idle_01.png" id="2_bsakq"]
+[ext_resource type="Texture2D" uid="uid://bkdk156phy28q" path="res://assets/projectiles/bullet/idle_02.png" id="3_kmyv4"]
+[ext_resource type="Texture2D" uid="uid://bct2ge453xtay" path="res://assets/projectiles/bullet/hit_vfx_00.png" id="4_q4fi5"]
+[ext_resource type="Texture2D" uid="uid://b66gsh5rsapdo" path="res://assets/projectiles/bullet/hit_vfx_01.png" id="5_674u7"]
+[ext_resource type="Texture2D" uid="uid://chh8eek0c0u8p" path="res://assets/projectiles/bullet/hit_vfx_02.png" id="6_k1qu5"]
+[ext_resource type="AudioStream" uid="uid://f6gp5r1blwh" path="res://assets/sounds/bullet_hit.wav" id="7_m63g7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_714bv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cx6g4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bsakq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kmyv4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_josub"]
+radius = 3.0
+height = 10.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dbmw8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_q4fi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_674u7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_k1qu5")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 10.0
+}]
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_5nbyw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_714bv")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(27, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_josub")
+
+[node name="HitVFX" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_dbmw8")
+animation = &"hit"
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_m63g7")
+
+[node name="Lifetime" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="HitVFX" to="." method="_on_hit_vfx_animation_finished"]
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

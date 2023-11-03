@@ -2,7 +2,7 @@ extends Node2D
 
 @export var fire_rate: float = 0.1
 @export var rotation_speed: float = 5.0
-@export var projectile_type: PackedScene
+@export var projectile_scene: PackedScene
 @export var projectile_speed: int = 1000
 @export var projectile_damage: int = 3
 
@@ -15,6 +15,7 @@ var map: Node
 @onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
 @onready var look_ahead: RayCast2D = $LookAhead
 @onready var fire_rate_timer: Timer = $FireRateTimer
+@onready var detector: Area2D = $Detector
 
 func _ready() -> void:
 	map = find_parent("Map")
@@ -22,7 +23,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not targets.is_empty():
 		var target_position: Vector2 = targets.front().global_position
-		var target_angle: float = self.global_position.angle_to(target_position)
+#		var target_angle: float = self.global_position.angle_to(target_position)
+		var target_angle: float = self.global_position.direction_to(target_position).angle()
 		rotation = lerp_angle(self.rotation, target_angle, rotation_speed * delta)
 		
 		if can_shoot and look_ahead.is_colliding():
@@ -31,7 +33,13 @@ func _physics_process(delta: float) -> void:
 func shoot() -> void:
 	can_shoot = false
 	for point in gun.get_children():
-		pass	
+		var projectile: Projectile = projectile_scene.instantiate()
+		projectile.start(point.global_position, self.rotation, projectile_speed, projectile_damage)
+		projectile.collision_mask = detector.collision_mask
+		if map:
+			map.add_child(projectile)
+		else:
+			owner.add_child(projectile)
 	_play_animations("shoot")
 	shoot_sound.play()
 	fire_rate_timer.start(fire_rate)

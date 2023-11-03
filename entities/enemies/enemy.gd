@@ -2,9 +2,13 @@ extends CharacterBody2D
 class_name Enemy
 
 @export var speed: int = 150
-@export var health: int = 100
+@export var health: int = 100:
+	set = set_health
 
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var default_sound: AudioStreamPlayer2D = $DefaultSound
 
 func _ready() -> void:
 	nav_agent.max_speed = speed
@@ -19,3 +23,19 @@ func _physics_process(delta: float) -> void:
 
 func set_target(target: Vector2) -> void:
 	nav_agent.target_position = target
+
+func set_health(value: int) -> void:
+	health = max(0, value)
+	if health == 0:
+		die()
+		
+func die() -> void:
+	collision_shape.set_deferred("disabled", true)
+	speed = 0
+	animated_sprite.play("die")
+	default_sound.stop()
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if animated_sprite.animation.contains("die"):
+		queue_free()

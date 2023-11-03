@@ -44,7 +44,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_g7abp")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
 "speed": 12.0
 }, {
@@ -96,7 +96,7 @@ objective_damage = 10
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_xjf2a")
-animation = &"move"
+animation = &"die"
 autoplay = "move"
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -104,3 +104,4 @@ shape = SubResource("CircleShape2D_v0nye")
 
 [node name="DefaultSound" parent="." index="2"]
 stream = ExtResource("18_vsqg5")
+volume_db = -12.0

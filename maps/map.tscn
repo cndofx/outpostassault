@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://cywgnnttuxrsa"]
+[gd_scene load_steps=24 format=3 uid="uid://cywgnnttuxrsa"]
 
 [ext_resource type="Script" path="res://maps/map.gd" id="1_7swb1"]
 [ext_resource type="Texture2D" uid="uid://cpth6ix46x5x6" path="res://assets/tiles/field_tilesheet.png" id="1_lhayp"]
 [ext_resource type="PackedScene" uid="uid://dcx8jj3r4mf8m" path="res://maps/objective/objective.tscn" id="3_mbab0"]
 [ext_resource type="PackedScene" uid="uid://73bgfuahx44j" path="res://maps/camera/camera.tscn" id="4_8vbfl"]
 [ext_resource type="PackedScene" uid="uid://dyl131yu0sjyc" path="res://maps/spawner/spawner.tscn" id="5_k75p5"]
+[ext_resource type="PackedScene" uid="uid://b8loble1sgdl2" path="res://entities/towers/tower.tscn" id="6_egyds"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7q2b1"]
 vertices = PackedVector2Array(-64, 64, -64, -64, 64, -64, 32, 32, 64, 32, 32, 64)
@@ -314,5 +315,14 @@ position = Vector2(262, 901)
 
 [node name="Location2" parent="Spawner/SpawnContainer" index="1"]
 position = Vector2(-133, 1025)
+
+[node name="Tower" parent="." instance=ExtResource("6_egyds")]
+position = Vector2(-114, 380)
+
+[node name="Tower2" parent="." instance=ExtResource("6_egyds")]
+position = Vector2(1085, 80)
+
+[node name="Tower3" parent="." instance=ExtResource("6_egyds")]
+position = Vector2(562, 577)
 
 [editable path="Spawner"]
