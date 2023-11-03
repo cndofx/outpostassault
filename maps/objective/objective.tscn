@@ -1,5 +1,6 @@
-[gd_scene load_steps=44 format=3 uid="uid://dcx8jj3r4mf8m"]
+[gd_scene load_steps=45 format=3 uid="uid://dcx8jj3r4mf8m"]
 
+[ext_resource type="Script" path="res://maps/objective/objective.gd" id="1_k0v8p"]
 [ext_resource type="Texture2D" uid="uid://drsaxq7qtd8fv" path="res://assets/objective/objective_die_00.png" id="1_kodvc"]
 [ext_resource type="Texture2D" uid="uid://eeu857asvkfd" path="res://assets/objective/objective_die_01.png" id="2_3i0v8"]
 [ext_resource type="Texture2D" uid="uid://b1bb0mov7ijlp" path="res://assets/objective/objective_die_02.png" id="3_71ewn"]
@@ -182,6 +183,8 @@ animations = [{
 size = Vector2(315, 256)
 
 [node name="Objective" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_k0v8p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3n5nr")
@@ -190,3 +193,5 @@ animation = &"die"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_yhuin")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

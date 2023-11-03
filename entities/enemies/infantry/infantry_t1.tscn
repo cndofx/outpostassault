@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://dhcwr6cq8ptm3"]
+[gd_scene load_steps=22 format=3 uid="uid://dhcwr6cq8ptm3"]
 
 [ext_resource type="PackedScene" uid="uid://c0vq3ew5n7h7" path="res://entities/enemies/enemy.tscn" id="1_k77bd"]
 [ext_resource type="Texture2D" uid="uid://5x6aak4wjglv" path="res://assets/enemies/infantry/tier1/die_00.png" id="2_a4cmb"]
+[ext_resource type="Script" path="res://entities/enemies/infantry/infantry_t1.gd" id="2_ku1i0"]
 [ext_resource type="Texture2D" uid="uid://xwtvye0lt0rd" path="res://assets/enemies/infantry/tier1/die_01.png" id="3_itrsm"]
 [ext_resource type="Texture2D" uid="uid://bwxinm52dxi2" path="res://assets/enemies/infantry/tier1/die_02.png" id="4_0nk5p"]
 [ext_resource type="Texture2D" uid="uid://ecmyjx4vwda" path="res://assets/enemies/infantry/tier1/die_03.png" id="5_ocjl1"]
@@ -89,6 +90,9 @@ animations = [{
 radius = 21.095
 
 [node name="InfantryT1" instance=ExtResource("1_k77bd")]
+collision_mask = 7
+script = ExtResource("2_ku1i0")
+objective_damage = 10
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_xjf2a")

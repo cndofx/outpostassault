@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Enemy
 
 @export var speed: int = 150
-#@export var objective: Node2D
+@export var health: int = 100
 
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 
