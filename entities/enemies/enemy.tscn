@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://c0vq3ew5n7h7"]
+[gd_scene load_steps=2 format=3 uid="uid://c0vq3ew5n7h7"]
+
+[ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="1_q7pm2"]
 
 [node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_q7pm2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
@@ -8,3 +11,7 @@
 
 [node name="DefaultSound" type="AudioStreamPlayer2D" parent="."]
 autoplay = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 100.0
+target_desired_distance = 100.0
