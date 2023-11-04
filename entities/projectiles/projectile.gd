@@ -33,9 +33,8 @@ func _on_hit_vfx_animation_finished() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Enemy:
-		var enemy: Enemy = body
-		enemy.health -= damage
+	if body is Enemy or body is Tower:
+		body.health -= damage
 		_explode()
 
 

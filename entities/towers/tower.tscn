@@ -1,15 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8loble1sgdl2"]
+[gd_scene load_steps=6 format=3 uid="uid://b8loble1sgdl2"]
 
 [ext_resource type="Texture2D" uid="uid://cwe18ao45s85f" path="res://assets/towers/gatling/tier1/base_idle_00.png" id="1_f17q1"]
+[ext_resource type="Script" path="res://entities/towers/tower.gd" id="1_ybqa0"]
 [ext_resource type="PackedScene" uid="uid://c2lhxgeilwnfr" path="res://entities/shooter.tscn" id="2_usyn0"]
 [ext_resource type="PackedScene" uid="uid://x56y1h42mc1h" path="res://entities/projectiles/projectile.tscn" id="3_61q6i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rys60"]
+size = Vector2(110, 108)
 
 [node name="Tower" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 33
+script = ExtResource("1_ybqa0")
 
 [node name="Foundation" type="Sprite2D" parent="."]
 texture = ExtResource("1_f17q1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_rys60")
 
 [node name="Shooter" parent="." instance=ExtResource("2_usyn0")]
 rotation_speed = 10.0
@@ -21,5 +30,7 @@ position = Vector2(56, 21)
 
 [node name="MuzzleFlash" parent="Shooter" index="1"]
 position = Vector2(76, 0)
+
+[connection signal="animation_finished" from="Shooter/Gun" to="." method="_on_gun_animation_finished"]
 
 [editable path="Shooter"]

@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Enemy
 
 @export var speed: int = 150
+@export var rotation_speed: float = 10.0
 @export var health: int = 100:
 	set = set_health
 
@@ -19,6 +20,10 @@ func _physics_process(delta: float) -> void:
 	var current_position: Vector2 = self.global_position
 	var new_velocity: Vector2 = current_position.direction_to(next_position) * speed
 	self.velocity = new_velocity
+	
+	animated_sprite.global_rotation = lerp_angle(animated_sprite.global_rotation, velocity.angle(), rotation_speed * delta)
+	collision_shape.global_rotation = lerp_angle(collision_shape.global_rotation, velocity.angle(), rotation_speed * delta)
+	
 	self.move_and_slide()
 
 func set_target(target: Vector2) -> void:
