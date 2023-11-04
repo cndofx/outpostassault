@@ -409,5 +409,6 @@ shape = SubResource("CircleShape2D_21i36")
 
 [node name="LookAhead" parent="Shooter" index="4"]
 target_position = Vector2(550, 0)
+collision_mask = 2
 
 [editable path="Shooter"]
