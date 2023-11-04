@@ -1,4 +1,5 @@
 extends Node2D
+class_name Shooter
 
 @export var fire_rate: float = 0.1
 @export var rotation_speed: float = 5.0
@@ -43,6 +44,13 @@ func shoot() -> void:
 	_play_animations("shoot")
 	shoot_sound.play()
 	fire_rate_timer.start(fire_rate)
+	
+func die() -> void:
+	set_physics_process(false)
+	can_shoot = false
+	fire_rate_timer.stop()
+	muzzle_flash.hide()
+	gun.play("die")
 
 func _play_animations(name: String) -> void:
 	gun.frame = 0

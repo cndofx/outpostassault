@@ -16,6 +16,9 @@ rotation_speed = 10.0
 projectile_scene = ExtResource("3_61q6i")
 projectile_damage = 5
 
+[node name="Muzzle2" type="Marker2D" parent="Shooter/Gun" index="1"]
+position = Vector2(56, 21)
+
 [node name="MuzzleFlash" parent="Shooter" index="1"]
 position = Vector2(76, 0)
 
