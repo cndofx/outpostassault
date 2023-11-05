@@ -38,5 +38,13 @@ func _on_body_entered(body: Node2D) -> void:
 		_explode()
 
 
+func _on_area_entered(area: Area2D) -> void:
+	if area is Objective:
+		area.health -= damage
+		_explode()
+
+
 func _on_lifetime_timeout() -> void:
 	queue_free()
+
+

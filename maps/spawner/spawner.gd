@@ -15,11 +15,16 @@ var current_enemy_count: int = 0
 @onready var spawn_timer: Timer = $SpawnTimer
 
 var infantry_t1: PackedScene = preload("res://entities/enemies/infantry/infantry_t1.tscn")
+var tank: PackedScene = preload("res://entities/enemies/tank/tank.tscn")
 
 func _ready() -> void:
+	await owner.ready
 	for child in spawn_container.get_children():
 		spawn_locations.append(child)
 	wave_timer.start()
+	
+	# temp
+	_spawn_enemy(tank)
 
 
 func _start_wave():

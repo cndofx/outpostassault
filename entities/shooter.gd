@@ -51,6 +51,12 @@ func die() -> void:
 	fire_rate_timer.stop()
 	muzzle_flash.hide()
 	gun.play("die")
+	
+func is_objective_in_range() -> bool:
+	for target in targets:
+		if target is Objective:
+			return true
+	return false
 
 func _play_animations(name: String) -> void:
 	gun.frame = 0

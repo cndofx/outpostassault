@@ -1,4 +1,5 @@
 extends Area2D
+class_name Objective
 
 @export var health: int = 500:
 	set = set_health

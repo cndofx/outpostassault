@@ -1,21 +1,23 @@
 extends State
-class_name ShootState
 
 @onready var enemy: Enemy = owner
 @onready var shooter: Shooter = enemy.get_shooter()
 
 func enter(sm: StateMachine, prev_state: State) -> void:
 	super(sm, prev_state)
-	enemy.play_animation("shoot")
-
+	enemy.play_animation("shoot_stationary")
+	
+	for i in len(shooter.targets):
+		if shooter.targets[i] is Objective:
+			var objective = shooter.targets.pop_at(i)
+			shooter.targets.push_front(objective)
+			break
+			
 func update(delta: float) -> void:
-	enemy._move(delta)
 	if shooter:
 		if shooter.targets.size() > 0:
 			shooter._rotate_shooter(delta)
-			if shooter.is_objective_in_range():
-				self.state_machine.transition_to("ShootStationary")
-			elif shooter._should_shoot():
+			if shooter._should_shoot():
 				shooter.shoot()
 		else:
 			state_machine.transition_to("Move")

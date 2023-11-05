@@ -10,4 +10,6 @@ func update(delta: float) -> void:
 	super(delta)
 	if shooter and shooter.targets.size() > 0:
 		shooter._rotate_shooter(delta)
+		if shooter.is_objective_in_range():
+			self.state_machine.transition_to("ShootStationary")
 		self.state_machine.transition_to("Shoot")
