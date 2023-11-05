@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://51x6sphvp6vh"]
+
+[ext_resource type="PackedScene" uid="uid://b8loble1sgdl2" path="res://entities/towers/tower.tscn" id="1_h0o1i"]
+
+[node name="GatlingTower" instance=ExtResource("1_h0o1i")]
+
+[node name="Muzzle2" type="Marker2D" parent="Shooter/Gun" index="1"]
+position = Vector2(56, 21)
+
+[editable path="Shooter"]

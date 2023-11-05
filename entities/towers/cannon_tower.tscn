@@ -1,0 +1,234 @@
+[gd_scene load_steps=46 format=3 uid="uid://d1ipka4pohahr"]
+
+[ext_resource type="PackedScene" uid="uid://b8loble1sgdl2" path="res://entities/towers/tower.tscn" id="1_g1mp6"]
+[ext_resource type="Texture2D" uid="uid://cqpd2eqi4e8ni" path="res://assets/towers/cannon/tier1/gun_die_00.png" id="2_jms1u"]
+[ext_resource type="PackedScene" uid="uid://b0xip63a4lrcd" path="res://entities/projectiles/shell/shell.tscn" id="2_kpm4b"]
+[ext_resource type="Texture2D" uid="uid://b4e18olg7vuv4" path="res://assets/towers/cannon/tier1/gun_die_01.png" id="3_4ste7"]
+[ext_resource type="Texture2D" uid="uid://cxq85ol23gcx6" path="res://assets/towers/cannon/tier1/gun_die_02.png" id="4_1kcfc"]
+[ext_resource type="Texture2D" uid="uid://c3kh5qfrcy6rc" path="res://assets/towers/cannon/tier1/gun_die_03.png" id="5_k8nnv"]
+[ext_resource type="Texture2D" uid="uid://do8drjsqd1g27" path="res://assets/towers/cannon/tier1/gun_die_04.png" id="6_plm71"]
+[ext_resource type="Texture2D" uid="uid://ja7evc4bcsif" path="res://assets/towers/cannon/tier1/gun_die_05.png" id="7_5pwb0"]
+[ext_resource type="Texture2D" uid="uid://n2mgpr740quy" path="res://assets/towers/cannon/tier1/gun_die_06.png" id="8_yfifa"]
+[ext_resource type="Texture2D" uid="uid://b3fi5t25ve8yr" path="res://assets/towers/cannon/tier1/gun_die_07.png" id="9_7gtqe"]
+[ext_resource type="Texture2D" uid="uid://bavih3tdgkr1k" path="res://assets/towers/cannon/tier1/gun_die_08.png" id="10_vigui"]
+[ext_resource type="Texture2D" uid="uid://pwq4ja3gj1ua" path="res://assets/towers/cannon/tier1/gun_die_09.png" id="11_m3brx"]
+[ext_resource type="Texture2D" uid="uid://bh4shs30ssswb" path="res://assets/towers/cannon/tier1/gun_die_10.png" id="12_m0d8f"]
+[ext_resource type="Texture2D" uid="uid://c4uosl374ojfd" path="res://assets/towers/cannon/tier1/gun_die_11.png" id="13_t67ku"]
+[ext_resource type="Texture2D" uid="uid://c2cw3pxpxx88e" path="res://assets/towers/cannon/tier1/gun_die_12.png" id="14_532cd"]
+[ext_resource type="Texture2D" uid="uid://c173qfufs3m5u" path="res://assets/towers/cannon/tier1/gun_die_13.png" id="15_chb8u"]
+[ext_resource type="Texture2D" uid="uid://3elk75t2ui7k" path="res://assets/towers/cannon/tier1/gun_die_14.png" id="16_bkows"]
+[ext_resource type="Texture2D" uid="uid://cuy5gvthby754" path="res://assets/towers/cannon/tier1/gun_die_15.png" id="17_rbu83"]
+[ext_resource type="Texture2D" uid="uid://b76psykxjb76n" path="res://assets/towers/cannon/tier1/gun_die_16.png" id="18_irho3"]
+[ext_resource type="Texture2D" uid="uid://by8gkyw4nq5px" path="res://assets/towers/cannon/tier1/gun_die_17.png" id="19_t8k8g"]
+[ext_resource type="Texture2D" uid="uid://dg6hr4f18ujwe" path="res://assets/towers/cannon/tier1/gun_die_18.png" id="20_bjs37"]
+[ext_resource type="Texture2D" uid="uid://bplaplrs41rdc" path="res://assets/towers/cannon/tier1/gun_die_19.png" id="21_qvhf1"]
+[ext_resource type="Texture2D" uid="uid://dw2s7f415skec" path="res://assets/towers/cannon/tier1/gun_die_20.png" id="22_kll15"]
+[ext_resource type="Texture2D" uid="uid://onugglvvwdc2" path="res://assets/towers/cannon/tier1/gun_die_21.png" id="23_6axlm"]
+[ext_resource type="Texture2D" uid="uid://dh2ggrchveu0w" path="res://assets/towers/cannon/tier1/gun_die_22.png" id="24_guvbu"]
+[ext_resource type="Texture2D" uid="uid://bdmt5dq3xhb5p" path="res://assets/towers/cannon/tier1/gun_idle_00.png" id="25_1w7wn"]
+[ext_resource type="Texture2D" uid="uid://dv3u54y4qawo8" path="res://assets/towers/cannon/tier1/gun_shoot_00.png" id="26_v441a"]
+[ext_resource type="Texture2D" uid="uid://c4yfdt81sdo2y" path="res://assets/towers/cannon/tier1/gun_shoot_01.png" id="27_2qdyg"]
+[ext_resource type="Texture2D" uid="uid://djma080kov570" path="res://assets/towers/cannon/tier1/gun_shoot_02.png" id="28_4tctb"]
+[ext_resource type="Texture2D" uid="uid://c5rxfajleimle" path="res://assets/towers/cannon/tier1/gun_shoot_03.png" id="29_t4ko2"]
+[ext_resource type="Texture2D" uid="uid://3h84n6vys1bj" path="res://assets/towers/cannon/tier1/gun_shoot_04.png" id="30_cmrgb"]
+[ext_resource type="Texture2D" uid="uid://cpvc6rhvja4eg" path="res://assets/towers/cannon/tier1/gun_shoot_05.png" id="31_dx58t"]
+[ext_resource type="Texture2D" uid="uid://b24o3v88m4uv8" path="res://assets/towers/cannon/tier1/gun_shoot_06.png" id="32_vrmrr"]
+[ext_resource type="Texture2D" uid="uid://cum6cxtjbj2sa" path="res://assets/towers/cannon/tier1/gun_shoot_07.png" id="33_pt14s"]
+[ext_resource type="Texture2D" uid="uid://rt4w37ibq8tq" path="res://assets/towers/cannon/tier1/gun_fx_00.png" id="34_wemdi"]
+[ext_resource type="Texture2D" uid="uid://ckw7o344tdf8c" path="res://assets/towers/cannon/tier1/gun_fx_01.png" id="35_253s8"]
+[ext_resource type="Texture2D" uid="uid://b5nfs4fkpsi8u" path="res://assets/towers/cannon/tier1/gun_fx_02.png" id="36_jx7dt"]
+[ext_resource type="Texture2D" uid="uid://d4iclqqvlutuv" path="res://assets/towers/cannon/tier1/gun_fx_03.png" id="37_gt17b"]
+[ext_resource type="Texture2D" uid="uid://d2q1y772pds08" path="res://assets/towers/cannon/tier1/gun_fx_04.png" id="38_ores6"]
+[ext_resource type="Texture2D" uid="uid://dwvx0i1yvqgoc" path="res://assets/towers/cannon/tier1/gun_fx_05.png" id="39_uxya5"]
+[ext_resource type="Texture2D" uid="uid://c26yywy857tfs" path="res://assets/towers/cannon/tier1/gun_fx_06.png" id="40_ew72g"]
+[ext_resource type="AudioStream" uid="uid://tdgre0hb1vq1" path="res://assets/sounds/cannon_shell.wav" id="42_5qgh1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ajyri"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jms1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4ste7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1kcfc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k8nnv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_plm71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5pwb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yfifa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7gtqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vigui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_m3brx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_m0d8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_t67ku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_532cd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_chb8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_bkows")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_rbu83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_irho3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_t8k8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_bjs37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_qvhf1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_kll15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_6axlm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_guvbu")
+}],
+"loop": false,
+"name": &"die",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_1w7wn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_v441a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_2qdyg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_4tctb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_t4ko2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_cmrgb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_dx58t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_vrmrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_pt14s")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4nh81"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_wemdi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_253s8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_jx7dt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_gt17b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_ores6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_uxya5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_ew72g")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lgahy"]
+radius = 600.0
+
+[node name="CannonTower" instance=ExtResource("1_g1mp6")]
+health = 150
+
+[node name="Shooter" parent="." index="2"]
+fire_rate = 2.5
+rotation_speed = 2.5
+projectile_scene = ExtResource("2_kpm4b")
+projectile_speed = 800
+projectile_damage = 20
+
+[node name="Gun" parent="Shooter" index="0"]
+position = Vector2(10, 0)
+sprite_frames = SubResource("SpriteFrames_ajyri")
+animation = &"idle"
+
+[node name="Muzzle" parent="Shooter/Gun" index="0"]
+position = Vector2(63, 2)
+
+[node name="MuzzleFlash" parent="Shooter" index="1"]
+sprite_frames = SubResource("SpriteFrames_4nh81")
+
+[node name="ShootSound" parent="Shooter" index="2"]
+stream = ExtResource("42_5qgh1")
+area_mask = 134217729
+
+[node name="Detector" parent="Shooter" index="3"]
+collision_mask = 32
+
+[node name="CollisionShape2D" parent="Shooter/Detector" index="0"]
+shape = SubResource("CircleShape2D_lgahy")
+
+[node name="LookAhead" parent="Shooter" index="4"]
+collision_mask = 32
+
+[editable path="Shooter"]
