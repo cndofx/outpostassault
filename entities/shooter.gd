@@ -21,15 +21,15 @@ var map: Node
 func _ready() -> void:
 	map = find_parent("Map")
 
-func _physics_process(delta: float) -> void:
+func _rotate_shooter(delta: float) -> void:
 	if not targets.is_empty():
 		var target_position: Vector2 = targets.front().global_position
 #		var target_angle: float = self.global_position.angle_to(target_position)
 		var target_angle: float = self.global_position.direction_to(target_position).angle()
 		rotation = lerp_angle(self.rotation, target_angle, rotation_speed * delta)
 		
-		if can_shoot and look_ahead.is_colliding():
-			shoot()
+func _should_shoot() -> bool:
+		return can_shoot and look_ahead.is_colliding()
 			
 func shoot() -> void:
 	can_shoot = false

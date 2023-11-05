@@ -10,12 +10,13 @@ class_name Enemy
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var default_sound: AudioStreamPlayer2D = $DefaultSound
+@onready var state_machine: StateMachine = $StateMachine
 
 func _ready() -> void:
 	nav_agent.max_speed = speed
 #	nav_agent.target_position = objective.global_position
 	
-func _physics_process(delta: float) -> void:
+func _move(delta: float) -> void:
 	var next_position: Vector2 = nav_agent.get_next_path_position()
 	var current_position: Vector2 = self.global_position
 	var new_velocity: Vector2 = current_position.direction_to(next_position) * speed
@@ -32,7 +33,8 @@ func set_target(target: Vector2) -> void:
 func set_health(value: int) -> void:
 	health = max(0, value)
 	if health == 0:
-		die()
+#		die()
+		state_machine.transition_to("Die")
 		
 func die() -> void:
 	collision_shape.set_deferred("disabled", true)
@@ -40,6 +42,11 @@ func die() -> void:
 	animated_sprite.play("die")
 	default_sound.stop()
 
+func play_animation(anim_name: String) -> void:
+	animated_sprite.play(anim_name)
+
+func get_shooter() -> Shooter:
+	return null
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite.animation.contains("die"):
